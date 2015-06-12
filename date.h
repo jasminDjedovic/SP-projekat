@@ -20,11 +20,15 @@ class Date
 
     Date& operator=(Date &&);
     Date& operator=(const Date &);
-
+    
+    /*
     friend ostream& operator<<(ostream& out, const Date& date)
     {
       out << date._day << "." << date._month << "." << date._year;
       return out;
     }
+    */
+
+    void print();
 };
 #endif
