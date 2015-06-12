@@ -13,10 +13,13 @@ bool user_check(string user,string pass,string file_name){
     while(getline(file,pars)){
         int user_letters=0;
         int pass_letters=0;
-        for(int i=0;pars[i]!='/';++i)
+        for(int i=0;pars[i]!='/';++i){
             ++user_letters;
-        for(int i=user_letters+1;pars[i]!=' ';++i)
+        }
+        for(int i=user_letters+1;pars[i]!='/';++i){
             ++pass_letters;
+        }
+        cout<<pars.substr(0,user_letters)<<" "<<pars.substr(user_letters+1,pass_letters)<<endl;
         if(user!=pars.substr(0,user_letters) || pass!=pars.substr(user_letters+1,pass_letters))
             continue;
         else
@@ -115,7 +118,7 @@ int main(){
                         case 2:
                             break;
                         case 3:
-                            new_worker_admin("worker.txt");
+                            new_worker_admin("workers.txt");
                             break;
                         case 4:
                             new_worker_admin("admin.txt");
