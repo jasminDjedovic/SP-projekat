@@ -1,0 +1,12 @@
+1. Dodati datum proizvodnje auta
+2. Napraviti logicke operatore u klasi auto
+3. Napraviti stablo auta (preko nasljedivanja)
+3.1 Stablo -> dodavanje auta
+3.1 Stablo -> prodavanje auta
+4. Izmjeniti login
+5. Dodavanje radnika
+6. Ispis baze automobila (tabela)
+7. Pretraga automobila
+
+
+
