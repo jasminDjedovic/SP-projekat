@@ -1,4 +1,5 @@
 #include "customer.h"
+#include "date.h"
 #include <string>
 #include <iostream>
 
@@ -47,7 +48,9 @@ void Customer::print()
   std::cout << "Ime kupca: " << _name << std::endl;
   std::cout << "Prezime kupca: " << _surname << std::endl;
   std::cout << "JMBG kupca: " << _JMBG << std::endl;
-  std::cout << "Datum kupovine automobila: " << _date;
+  //std::cout << "Datum kupovine automobila: " << _date;
+  std::cout << "Datum kupovine automobila: ";
+  _date.print();
   std::cout << "Informacije o kupljenom automobilu: " << std::endl;
   _car.print();
 }
