@@ -1,5 +1,5 @@
-1. Dodati datum proizvodnje auta
-2. Napraviti logicke operatore u klasi auto
+1. Dodati datum proizvodnje auta (DONE)
+2. Napraviti logicke operatore u klasi auto (DONE)
 3. Napraviti stablo auta (preko nasljedivanja)
 3.1 Stablo -> dodavanje auta
 3.1 Stablo -> prodavanje auta
