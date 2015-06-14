@@ -87,3 +87,9 @@ void CarModel::print()
   _manufacture_date.print();
 }
 
+bool CarModel::operator==(const CarModel& other) const {return (_chasisNumber == other._chasisNumber);}
+bool CarModel::operator!=(const CarModel& other) const {return (_chasisNumber != other._chasisNumber);}
+bool CarModel::operator <(const CarModel& other) const {return (_chasisNumber < other._chasisNumber);}
+bool CarModel::operator >(const CarModel& other) const {return (_chasisNumber > other._chasisNumber);}
+bool CarModel::operator <=(const CarModel& other) const {return (_chasisNumber <= other._chasisNumber);}
+bool CarModel::operator >=(const CarModel& other) const {return (_chasisNumber >= other._chasisNumber);}
