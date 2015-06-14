@@ -21,6 +21,13 @@ class CarModel : public Manufacturer
     CarModel &operator=(const CarModel &);
     CarModel &operator=(CarModel &&);
 
+    bool operator ==(const CarModel&) const;
+    bool operator !=(const CarModel&) const;
+    bool operator <(const CarModel&) const;
+    bool operator >(const CarModel&) const;
+    bool operator <=(const CarModel&) const;
+    bool operator >=(const CarModel&) const;
+
     void print();
 };
 
