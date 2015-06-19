@@ -3,18 +3,19 @@
 #include<string>
 #include "worker.h"
 #include "treeCarModel.hxx"
+#include "ListOfWorkers.hxx"
 
 using namespace std;
 
 string admin_user_pass="admin";
 
-bool user_check(const string&, const string&, const string&);
-void new_worker(const string& );
 int admin_login();
 int worker_login();
 
 int main(){
     TreeCarModel carDatabase;
+    ListOfWorkers workerDatabase;
+    workerDatabase.load_workers();
     bool log;
     bool main_log=false;
     int admin_log;
@@ -38,13 +39,17 @@ int main(){
                             carDatabase.printCar();
                             break;
                         case 3:
-                            new_worker("workers.txt");
+                            workerDatabase.addWorker();
                             break;
                         case 4:
+                            workerDatabase.printWorker();
+                            break;
+                        case 5:
                             carDatabase.findCar();
                             break;
                         case 0:
                             main_log=true;
+                            workerDatabase.store_workers();
                             cout<<"Good bye..."<<endl;
                             break;
                         default:
@@ -53,7 +58,7 @@ int main(){
                     }
                 }
                 }
-                else if(user_check(user,password,"workers.txt")==true){
+                else if(workerDatabase.user_check(user,password)){
                 worker_log=-1;
                 while(worker_log!=0){
                     switch (worker_log=worker_login()) {
@@ -63,6 +68,7 @@ int main(){
                             break;
                         case 0:
                             main_log=true;
+                            workerDatabase.store_workers();
                             cout<<"Good bye..."<<endl;
                             break;
                         default:
@@ -77,68 +83,22 @@ int main(){
                 }
         }
     
+    
     return 0;
 }
 
 
-bool user_check(const string& user,const string& pass,const string& file_name){
-    ifstream file(file_name);
-    if(!file){
-        cout<<"The file don't exist."<<endl;
-        file.close();
-    }
-    string pars;
-    while(getline(file,pars)){
-        int user_letters=0;
-        int pass_letters=0;
-        for(int i=0;pars[i]!='/';++i){
-            ++user_letters;
-        }
-        for(int i=user_letters+1;pars[i]!='/';++i){
-            ++pass_letters;
-        }
-        if(user!=pars.substr(0,user_letters) && pass!=pars.substr(user_letters+1,pass_letters))
-            continue;
-        else
-            return true;
-    }
-    file.close();
-    return false;
-}
 
-void new_worker(const string& file_name){
-    string user,pass,name,last_name;
-    cout<<"Type you'r name: ";
-    cin>>name;
-    cout<<"Type you'r last name: ";
-    cin>>last_name;
-    cout<<"Type you'r username: ";
-    cin>>user;
-    cout<<"Type you'r password: ";
-    cin>>pass;
-    cin.ignore();
-    if(user_check(user,pass,file_name)==false){
-        ofstream file(file_name,ofstream::app);
-        if(file.is_open()){
-            file<<"\n";
-            file<<user<<"/"<<pass<<"/"<<name<<"/"<<last_name<<"/";
-            cout<<"The new worker is in the database."<<endl;
-        }
-        else
-            cout<<"The file don't exist."<<endl;
-    }
-    else
-        cout<<"Profile with that user or password exist in the database. Sorry"<<endl;
-}
 
 
 int admin_login(){
     int login;
     cout<<"----------------------"<<endl;
     cout<<"1 -> Add a new car"<<endl;
-    cout<<"2 -> Preview the database"<<endl;
+    cout<<"2 -> Preview car database"<<endl;
     cout<<"3 -> Add a new worker"<<endl;
-    cout<<"4 -> Search database for car"<<endl;
+    cout<<"4 -> Preview worker database"<<endl;
+    cout<<"5 -> Search database for car"<<endl;
     cout<<"0 -> Quit"<<endl;
     cout<<"----------------------"<<endl;
     cout<<"-> ";
