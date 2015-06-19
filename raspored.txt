@@ -1,7 +1,7 @@
 3.1 Stablo -> prodavanje auta (IN PROGRESS)
 4. Popraviti login
 5. Pregled svih radnika
-7. Pretraga automobila (IN PROGRESS)
+7. Pretraga automobila (DONE)
 8. Urediti stablo kao samobalansirajuce
 10. Napraviti racun
 
