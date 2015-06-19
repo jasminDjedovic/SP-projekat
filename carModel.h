@@ -20,6 +20,7 @@ class CarModel : public Manufacturer
     CarModel(CarModel &&);
     CarModel &operator=(const CarModel &);
     CarModel &operator=(CarModel &&);
+    CarModel(const std::string&);
 
     bool operator ==(const CarModel&) const;
     bool operator !=(const CarModel&) const;
@@ -29,6 +30,8 @@ class CarModel : public Manufacturer
     bool operator >=(const CarModel&) const;
 
     friend std::ostream& operator<<(std::ostream&, const CarModel&);
+
+
 };
 
 #endif
