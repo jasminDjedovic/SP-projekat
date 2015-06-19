@@ -24,7 +24,7 @@ CarModel::CarModel(const std::string& a)
   _engineType  = a.substr(50, 8);
   _numberOfDoors = stoi(a.substr(58, 1));
   _color = a.substr(60, 7);
-  _manufacture_date = Date(a.substr(67));
+  _manufacture_date = Date(a.substr(67, 12));
 }
 
 CarModel::CarModel(const std::string &name, const std::string &model, const std::string &Class, long int chasisNumber, int numberOfDoors, const std::string &color, int engineSize, const std::string &engineType, const Date &manufacture_date)
