@@ -15,7 +15,7 @@ class CarModel : public Manufacturer
     Date _manufacture_date;
   public:
     CarModel();
-    CarModel(const std::string &, const std::string &, const std::string &, long int, int, const std::string &, int, const std::string &, Date&);
+    CarModel(const std::string &, const std::string &, const std::string &, long int, int, const std::string &, int, const std::string &, const Date&);
     CarModel(const CarModel &);
     CarModel(CarModel &&);
     CarModel &operator=(const CarModel &);
