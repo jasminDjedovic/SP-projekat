@@ -27,7 +27,7 @@ void ListOfWorkers::printWorker(){
 
 bool ListOfWorkers::user_check(const std::string& user,const std::string& pass){
     for(int i=0;i<size();++i){
-        if(user!=operator[](i).getId() && pass!=operator[](i).getPassword())
+        if(user==operator[](i).getId() && pass==operator[](i).getPassword())
             return true;
     }
     return false;
@@ -92,11 +92,15 @@ void ListOfWorkers::addWorker(){
     std::cin>>id;
     std::cout<<"Password: ";
     std::cin>>pass;
-        if(user_check(id,pass)){
+        if(user_check(id,pass)==false){
             break;
             not_exist=false;
         }
-        else continue;
+        else{
+            std::cout<<"The worker with that user name or password is already in the database. Please try again."<<std::endl;
+            continue;
+        }
+        
     }
     push_back(Worker(id,pass,name,last_name));
 }
