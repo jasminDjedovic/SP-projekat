@@ -35,7 +35,7 @@ Date& Date::operator=(const Date& b)
   return *this;
 }
 
-void Date::print()
+void Date::print() const
 {
   std::cout << _day << "." << _month << "." << _year;
 }

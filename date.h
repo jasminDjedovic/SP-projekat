@@ -32,6 +32,6 @@ class Date
     }
     */
 
-    void print();
+    void print() const;
 };
 #endif
