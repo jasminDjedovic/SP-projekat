@@ -5,6 +5,7 @@
 #include "date.h"
 #include <string>
 #include <fstream>
+#include "node.hxx"
 
 class TreeCarModel : public BST<CarModel>
 {
@@ -12,7 +13,25 @@ class TreeCarModel : public BST<CarModel>
     void addCar();
     void printCar();
     void loadCars();
+    NodeBST<CarModel>* searchCar(const long int&);
 };
+
+NodeBST<CarModel>* TreeCarModel::searchCar(const long int& chasisNumber)
+{
+  NodeBST<CarModel> *tmp = root;
+
+  while(tmp != nullptr)
+  {
+    if(tmp -> getValue() == chasisNumber)
+      return tmp;
+   
+    if(tmp -> getValue() < chasisNumber)
+      tmp = tmp -> getRightNode();
+    else
+      tmp = tmp -> getLeftNode();
+  }
+  return nullptr;
+}
 
 void TreeCarModel::loadCars()
 {
