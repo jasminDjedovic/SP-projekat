@@ -84,14 +84,17 @@ lista<T> &lista<T>::operator=(lista<T> &&b)
 template <typename T>
 void lista<T>::push_back(T val)
 {
-  if(!full())
-  {
-    array[_size] = val;
-    _current = _size;
-    ++_size;
+  if(full()==true)
+    {
+      T* tmp=new T[_capacity*2];
+      std::copy(array,array+_size,tmp);
+      array=tmp;
+      _capacity*=2;
+      tmp=nullptr;
   }
-  else
-    throw std::string("Lista je puna!!");
+      array[_size] = val;
+      _current = _size;
+      ++_size;
 }
 template <typename T>
 void lista<T>::push_front(T val)
