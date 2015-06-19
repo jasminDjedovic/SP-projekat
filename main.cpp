@@ -1,10 +1,8 @@
 #include<iostream>
 #include<fstream>
 #include<string>
-#include<worker.cpp>
-
-
-
+#include "worker.h"
+#include "treeCarModel.hxx"
 
 using namespace std;
 
@@ -16,6 +14,7 @@ int admin_login();
 int worker_login();
 
 int main(){
+    TreeCarModel carDatabase;
     bool log;
     bool main_log=false;
     int admin_log;
@@ -32,8 +31,10 @@ int main(){
                 while(admin_log!=0){
                     switch (admin_log=admin_login()) {
                         case 1:
+                            carDatabase.addCar();
                             break;
                         case 2:
+                            carDatabase.printCar();
                             break;
                         case 3:
                             new_worker("workers.txt");
