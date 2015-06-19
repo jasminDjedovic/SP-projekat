@@ -24,6 +24,7 @@ class BST
     void postorder(NodeBST<T> *);
     void destroy(NodeBST<T> *tmp);
     void remove(const T &);
+    bool isEmpty(){return root == nullptr;}
 };
 
 template <typename T>
