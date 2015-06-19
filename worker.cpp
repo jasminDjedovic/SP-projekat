@@ -5,7 +5,7 @@
 Worker::Worker(const Worker &b)
 {
   _id_worker = b._id_worker;
-  _password = b.password;
+  _password = b._password;
   _name = b._name;
   _surname = b._surname;
   
@@ -14,7 +14,7 @@ Worker::Worker(const Worker &b)
 Worker::Worker(Worker &&b)
 {
   _id_worker = b._id_worker;
-  _password = b.password;
+  _password = b._password;
   _name = b._name;
   _surname = b._surname;
   
@@ -23,7 +23,7 @@ Worker::Worker(Worker &&b)
 Worker& Worker::operator=(Worker&& b)
 {
   _id_worker = b._id_worker;
-  _password = b.password;
+  _password = b._password;
   _name = b._name;
   _surname = b._surname;
   
@@ -34,7 +34,7 @@ Worker& Worker::operator=(Worker&& b)
 Worker& Worker::operator=(const Worker& b)
 {
   _id_worker = b._id_worker;
-  _password = b.password;
+  _password = b._password;
   _name = b._name;
   _surname = b._surname;
   
