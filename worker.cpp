@@ -46,4 +46,5 @@ void Worker::print()
   std::cout << "ID radnika: " << _id_worker << std::endl;
   std::cout << "Ime radnika: " << _name << std::endl;
   std::cout << "Prezime radnika: " << _surname << std::endl;
+  std::cout<<"----------------------------------------"<<std::endl;
 }
