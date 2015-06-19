@@ -75,11 +75,13 @@ CarModel &CarModel::operator=(CarModel &&b)
   return *this;
 }
 
-void CarModel::print()
+std::ostream& operator<<(std::ostream& out, const CarModel& car)
 {
-  std::cout<<_name<<"\t"<<_model<<"\t"<<_class<<"\t"<<_chasisNumber<<"\t"<<_engineSize<<"\t"<<_engineType<<"\t"<<_numberOfDoors<<"\t"<<_color<<"\t";
-  _manufacture_date.print();
-  std::cout << std::endl;
+
+  out<<car._name<<"\t"<<car._model<<"\t"<<car._class<<"\t"<<car._chasisNumber<<"\t"<<car._engineSize<<"\t"<<car._engineType<<"\t"<<car._numberOfDoors<<"\t"<<car._color<<"\t";
+  car._manufacture_date.print();
+  out << std::endl;
+  return out;
 }
 
 bool CarModel::operator==(const CarModel& other) const {return (_chasisNumber == other._chasisNumber);}

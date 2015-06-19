@@ -28,7 +28,7 @@ class CarModel : public Manufacturer
     bool operator <=(const CarModel&) const;
     bool operator >=(const CarModel&) const;
 
-    void print();
+    friend std::ostream& operator<<(std::ostream&, const CarModel&);
 };
 
 #endif
