@@ -10,11 +10,15 @@ class TreeCarModel : public BST<CarModel>
   public:
     void addCar();
     void printCar();
-    void print();
 };
 
 void TreeCarModel::printCar()
 {
+  if(isEmpty()==true)
+  {
+    std::cout<<"There are no cars in database!"<<std::endl;
+    return;
+  }
   std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
   std::cout << "Name" << "\t" << "Model" << "\t" << "Class" << "\t" << "Chasis Number" << "\t" << "Engine Size" << "\t" << "Number of doors " << "\t" << "Color" << "\t" << "Manufacture date" << std::endl;
   std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
