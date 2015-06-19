@@ -14,7 +14,27 @@ class TreeCarModel : public BST<CarModel>
     void printCar();
     void loadCars();
     NodeBST<CarModel>* searchCar(const long int&);
+    void findCar();
 };
+
+void TreeCarModel::findCar()
+{
+  long int chasisNumber;
+
+  std::cout << "Insert chasis number for search: " << std::endl;
+  std::cin >> chasisNumber;
+
+  NodeBST<CarModel>* tmp = searchCar(chasisNumber);
+
+  if(tmp == nullptr)
+    std::cout << "Car wasn't find in database" << std::endl;
+  else
+  {
+    std::cout << "Car information with chasis number: " << chasisNumber << std::endl;
+    std::cout << tmp -> getValue() << std::endl;
+  }
+}
+
 
 NodeBST<CarModel>* TreeCarModel::searchCar(const long int& chasisNumber)
 {
