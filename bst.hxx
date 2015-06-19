@@ -6,7 +6,7 @@
 template <typename T>
 class BST
 {
-  private:
+  protected:
     NodeBST<T> *root;
   public:
     BST() : root(nullptr) {}
