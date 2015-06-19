@@ -40,6 +40,9 @@ int main(){
                         case 3:
                             new_worker("workers.txt");
                             break;
+                        case 4:
+                            carDatabase.findCar();
+                            break;
                         case 0:
                             main_log=true;
                             cout<<"Good bye..."<<endl;
@@ -135,6 +138,7 @@ int admin_login(){
     cout<<"1 -> Add a new car"<<endl;
     cout<<"2 -> Preview the database"<<endl;
     cout<<"3 -> Add a new worker"<<endl;
+    cout<<"4 -> Search database for car"<<endl;
     cout<<"0 -> Quit"<<endl;
     cout<<"----------------------"<<endl;
     cout<<"-> ";
