@@ -69,8 +69,11 @@ void BST<T>::destroy(NodeBST<T> *tmp)
 template <typename T>
 BST<T>::~BST()
 {
-  destroy(root);
-  root = nullptr;
+  if(root!=nullptr)
+  {
+    destroy(root);
+    root = nullptr;
+  }
 }
 
 template <typename T>
