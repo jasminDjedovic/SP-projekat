@@ -39,3 +39,11 @@ void Date::print()
 {
   std::cout << _day << "." << _month << "." << _year;
 }
+
+Date::Date(const std::string& date)
+{
+  //11/03/2015
+  _day = date.substr(0, 2);
+  _month = date.substr(3, 2);
+  _year = date.substr(6);
+}
