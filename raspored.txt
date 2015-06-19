@@ -2,12 +2,13 @@
 2. Napraviti logicke operatore u klasi auto (DONE)
 3. Napraviti stablo auta (preko nasljedivanja) (DONE)
 3.1 Stablo -> dodavanje auta (DONE)
-3.1 Stablo -> prodavanje auta
-4. Izmjeniti login
-5. Dodavanje radnika
-6. Ispis baze automobila (tabela)
-7. Pretraga automobila
+3.1 Stablo -> prodavanje auta (IN PROGRESS)
+4. Izmjeniti login (DONE)
+5. Dodavanje radnika (DONE)
+6. Ispis baze automobila (tabela) (DONE)
+7. Pretraga automobila (IN PROGRESS)
 8. Urediti stablo kao samobalansirajuce
-
+9. Napraviti klasu radnici (DONE)
+10. Napraviti racun
 
 
