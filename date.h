@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <string>
 
 class Date
 {
@@ -14,6 +15,8 @@ class Date
   public:
     Date() : _day(""), _month(""), _year("") {}
     Date(const std::string& day, const std::string& month, const std::string& year) {}
+
+    Date(const std::string&);
 
     Date(const Date&);
     Date(Date&&);
