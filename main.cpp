@@ -27,6 +27,7 @@ int main(){
              cout<<"Password: ";
              cin>>password;
              if(user==admin_user_pass && password==admin_user_pass){
+                carDatabase.loadCars();
                 admin_log=-1;
                 while(admin_log!=0){
                     switch (admin_log=admin_login()) {
