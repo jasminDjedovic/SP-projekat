@@ -104,3 +104,13 @@ bool CarModel::operator <(const CarModel& other) const {return (_chasisNumber < 
 bool CarModel::operator >(const CarModel& other) const {return (_chasisNumber > other._chasisNumber);}
 bool CarModel::operator <=(const CarModel& other) const {return (_chasisNumber <= other._chasisNumber);}
 bool CarModel::operator >=(const CarModel& other) const {return (_chasisNumber >= other._chasisNumber);}
+
+bool CarModel::operator==(long int& chasisNumber)
+{
+  return _chasisNumber == chasisNumber;
+}
+
+bool CarModel::operator<(long int& chasisNumber)
+{
+  return _chasisNumber < chasisNumber;
+}
