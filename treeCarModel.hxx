@@ -4,13 +4,30 @@
 #include "carModel.h"
 #include "date.h"
 #include <string>
+#include <fstream>
 
 class TreeCarModel : public BST<CarModel>
 {
   public:
     void addCar();
     void printCar();
+    void loadCars();
 };
+
+void TreeCarModel::loadCars()
+{
+  std::ifstream file("carDatabase.txt");
+  if(!file)
+  {
+    std::cout<<"Error loading cars from database!"<<std::endl;
+    file.close();
+  }
+  std::string pars;
+  while(std::getline(file, pars))
+  {
+    insert(CarModel(pars));
+  }
+}
 
 void TreeCarModel::printCar()
 {
