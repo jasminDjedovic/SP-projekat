@@ -21,6 +21,11 @@ class Worker
 
     Worker& operator=(Worker &&);
     Worker& operator=(const Worker &);
+    
+    std::string getId(){return _id_worker;}
+    std::string getPassword(){return _password;}
+    std::string getName(){return _name;}
+    std::string getSur_name(){return _surname;}
 
     void print();
 };
