@@ -2,6 +2,7 @@
 #include "manufacturer.h"
 #include "date.h"
 #include <iostream>
+#include <string>
 
 CarModel::CarModel()
 {
@@ -12,6 +13,20 @@ CarModel::CarModel()
   _engineSize = 0;
   _engineType = "";
 }
+
+CarModel::CarModel(const std::string& a)
+{
+  _name = a.substr(0, 15);
+  _model = a.substr(15, 11);
+  _class = a.substr(26, 12); 
+  _chasisNumber = stoi(a.substr(38, 6));
+  _engineSize = stoi(a.substr(45, 4));
+  _engineType  = a.substr(50, 8);
+  _numberOfDoors = stoi(a.substr(58, 1));
+  _color = a.substr(60, 7);
+  _manufacture_date = Date(a.substr(67));
+}
+
 CarModel::CarModel(const std::string &name, const std::string &model, const std::string &Class, long int chasisNumber, int numberOfDoors, const std::string &color, int engineSize, const std::string &engineType, const Date &manufacture_date)
 {
   _name = name;
