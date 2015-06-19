@@ -114,7 +114,7 @@ void lista<T>::pop_back()
   if(!empty())
   {
     --_size;
-    _current = size-1;
+    _current = _size-1;
   }
   else
     throw std::string("Prazna lista!!");
