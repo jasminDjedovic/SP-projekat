@@ -1,12 +1,13 @@
 1. Dodati datum proizvodnje auta (DONE)
 2. Napraviti logicke operatore u klasi auto (DONE)
-3. Napraviti stablo auta (preko nasljedivanja)
-3.1 Stablo -> dodavanje auta
+3. Napraviti stablo auta (preko nasljedivanja) (DONE)
+3.1 Stablo -> dodavanje auta (DONE)
 3.1 Stablo -> prodavanje auta
 4. Izmjeniti login
 5. Dodavanje radnika
 6. Ispis baze automobila (tabela)
 7. Pretraga automobila
+8. Urediti stablo kao samobalansirajuce
 
 
 

@@ -2,6 +2,7 @@
 #define _TREE_CAR_MODEL_
 #include "bst.hxx"
 #include "carModel.h"
+#include "date.h"
 #include <string>
 
 class TreeCarModel : public BST<CarModel>
@@ -12,7 +13,7 @@ class TreeCarModel : public BST<CarModel>
 
 void TreeCarModel::addCar()
 {
-  std::string name, model, Class, color, engineType;
+  std::string name, model, Class, color, engineType, date;
   long int chasisNumber;
   int numberOfDoors, engineSize;
   std::cout<<"Please insert car info: "<<std::endl;
@@ -32,7 +33,10 @@ void TreeCarModel::addCar()
   std::cin>>numberOfDoors;
   std::cout<<"Color: ";
   std::cin>>color;
+  std::cout<<"Manufacture date: (DD/MM/YY): ";
+  std::cin>>date;
 
-  insert(CarModel(name, model, Class, chasisNumber, numberOfDoors, color, engineSize, engineType));
+
+  insert(CarModel(name, model, Class, chasisNumber, numberOfDoors, color, engineSize, engineType, Date(date)));
 }
 #endif

@@ -12,7 +12,7 @@ CarModel::CarModel()
   _engineSize = 0;
   _engineType = "";
 }
-CarModel::CarModel(const std::string &name, const std::string &model, const std::string &Class, long int chasisNumber, int numberOfDoors, const std::string &color, int engineSize, const std::string &engineType, Date &manufacture_date)
+CarModel::CarModel(const std::string &name, const std::string &model, const std::string &Class, long int chasisNumber, int numberOfDoors, const std::string &color, int engineSize, const std::string &engineType, const Date &manufacture_date)
 {
   _name = name;
   _model = model;
