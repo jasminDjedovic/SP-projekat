@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<worker.cpp>
 
 
 
@@ -101,7 +102,11 @@ bool user_check(const string& user,const string& pass,const string& file_name){
 }
 
 void new_worker(const string& file_name){
-    string user,pass;
+    string user,pass,name,last_name;
+    cout<<"Type you'r name: ";
+    cin>>name;
+    cout<<"Type you'r last name: ";
+    cin>>last_name;
     cout<<"Type you'r username: ";
     cin>>user;
     cout<<"Type you'r password: ";
@@ -111,7 +116,7 @@ void new_worker(const string& file_name){
         ofstream file(file_name,ofstream::app);
         if(file.is_open()){
             file<<"\n";
-            file<<user<<"/"<<pass<<"/";
+            file<<user<<"/"<<pass<<"/"<<name<<"/"<<last_name<<"/";
             cout<<"The new worker is in the database."<<endl;
         }
         else
