@@ -22,8 +22,8 @@ class CarModel : public Manufacturer
     CarModel &operator=(CarModel &&);
     CarModel(const std::string&);
 
-    bool operator==(long int&);
-    bool operator<(long int&);
+    bool operator==(const long int&) const;
+    bool operator<(const long int&) const;
 
     bool operator ==(const CarModel&) const;
     bool operator !=(const CarModel&) const;
