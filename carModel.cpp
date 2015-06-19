@@ -95,7 +95,6 @@ std::ostream& operator<<(std::ostream& out, const CarModel& car)
 
   out<<car._name<<"\t"<<car._model<<"\t"<<car._class<<"\t"<<car._chasisNumber<<"\t"<<car._engineSize<<"\t"<<car._engineType<<"\t"<<car._numberOfDoors<<"\t"<<car._color<<"\t";
   car._manufacture_date.print();
-  out << std::endl;
   return out;
 }
 
