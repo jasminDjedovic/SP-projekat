@@ -74,17 +74,12 @@ CarModel &CarModel::operator=(CarModel &&b)
   _manufacture_date = b._manufacture_date;
   return *this;
 }
+
 void CarModel::print()
 {
-  std::cout<<"Proizvodac: "<<_name<<std::endl;
-  std::cout<<"Model: "<<_model<<std::endl;
-  std::cout<<"Tip: "<<_class<<std::endl;
-  std::cout<<"Zapremina motora: "<<_engineSize<<std::endl;
-  std::cout<<"Tip motora: "<<_engineType<<std::endl;
-  std::cout<<"Broj vrata: "<<_numberOfDoors<<std::endl;
-  std::cout<<"Boja: "<<_color<<std::endl;
-  std::cout <<"Datum proizvodnje automobila: ";
+  std::cout<<_name<<"\t"<<_model<<"\t"<<_class<<"\t"<<_chasisNumber<<"\t"<<_engineSize<<"\t"<<_engineType<<"\t"<<_numberOfDoors<<"\t"<<_color<<"\t";
   _manufacture_date.print();
+  std::cout << std::endl;
 }
 
 bool CarModel::operator==(const CarModel& other) const {return (_chasisNumber == other._chasisNumber);}
