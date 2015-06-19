@@ -52,5 +52,5 @@ void Customer::print()
   std::cout << "Datum kupovine automobila: ";
   _date.print();
   std::cout << "Informacije o kupljenom automobilu: " << std::endl;
-  _car.print();
+  //_car.print();
 }
