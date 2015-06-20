@@ -2,6 +2,7 @@
 #include<fstream>
 #include<string>
 #include<unistd.h>
+#include<cstdlib>
 #include "worker.h"
 #include "treeCarModel.hxx"
 #include "ListOfWorkers.hxx"
@@ -78,7 +79,7 @@ int main(){
                     }
                 }
                 }
-                else if(user!=admin_user && password!=admin_pass){
+                else if(user!=admin_user && strcmp(password,admin_pass)){
                     cout<<"You'r user name and password don't match"<<endl;
                     continue;
                 }
