@@ -1,13 +1,15 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<unistd.h>
 #include "worker.h"
 #include "treeCarModel.hxx"
 #include "ListOfWorkers.hxx"
 
 using namespace std;
 
-string admin_user_pass="admin";
+string admin_user="admin";
+const char* admin_pass="admin";
 
 int admin_login();
 int worker_login();
@@ -22,12 +24,11 @@ int main(){
     int worker_log;
     while(main_log==false){
              string user;
-             string password;
+             char* password;
              cout<<"User name: ";
              cin>>user;
-             cout<<"Password: ";
-             cin>>password;
-             if(user==admin_user_pass && password==admin_user_pass){
+             password=getpass("Password: ");
+             if(user==admin_user && strcmp(password,admin_pass)==0){
                 carDatabase.loadCars();
                 admin_log=-1;
                 while(admin_log!=0){
@@ -77,7 +78,7 @@ int main(){
                     }
                 }
                 }
-                else if(user!=admin_user_pass || password!=admin_user_pass){
+                else if(user!=admin_user && password!=admin_pass){
                     cout<<"You'r user name and password don't match"<<endl;
                     continue;
                 }
@@ -86,9 +87,6 @@ int main(){
     
     return 0;
 }
-
-
-
 
 
 int admin_login(){
