@@ -14,8 +14,7 @@ class Date
 
   public:
     Date() : _day(""), _month(""), _year("") {}
-    Date(const std::string& day, const std::string& month, const std::string& year) {}
-
+    Date(const std::string& day, const std::string& month, const std::string& year):_day{day},_month{month},_year{year}{}
     Date(const std::string&);
 
     Date(const Date&);
