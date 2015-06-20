@@ -74,7 +74,7 @@ void ListOfWorkers::store_workers(){
         file<<operator[](i).getId()<<"/"<<operator[](i).getPassword()<<"/"<<operator[](i).getName()<<"/"<<operator[](i).getSur_name()<<"/"<<"\n";
         
     }
-        std::cout<<"Data stored sucessfull."<<std::endl;
+        std::cout<<"Workers stored sucessfull."<<std::endl;
     }
     else
         std::cout<<"The file don't exist."<<std::endl;

@@ -22,6 +22,8 @@ int main(){
     workerDatabase.load_workers();
     bool log;
     bool main_log=false;
+    bool editedCars = false;
+    bool editedWorkers = false;
     int admin_log;
     int worker_log;
     while(main_log==false){
@@ -37,12 +39,14 @@ int main(){
                     switch (admin_log=admin_login()) {
                         case 1:
                             carDatabase.addCar();
+                            editedCars = true;
                             break;
                         case 2:
                             carDatabase.printCar();
                             break;
                         case 3:
                             workerDatabase.addWorker();
+                            editedWorkers = true;
                             break;
                         case 4:
                             workerDatabase.printWorker();
@@ -52,11 +56,9 @@ int main(){
                             break;
                         case 0:
                             main_log=true;
-                            workerDatabase.store_workers();
-                            cout<<"Good bye..."<<endl;
                             break;
                         default:
-                            cout<<"Wrong chose!"<<endl;
+                            cout<<"Wrong choice!"<<endl;
                             break;
                     }
                 }
@@ -74,25 +76,40 @@ int main(){
                             break;
                         case 3:
                             carDatabase.sellCar();
+                            editedCars = true;
+                            cout<<"Car marked as sold!"<<endl;
                             break;
                         case 0:
                             main_log=true;
-                            workerDatabase.store_workers();
-                            cout<<"Good bye..."<<endl;
                             break;
                         default:
-                            cout<<"Wrong chose!"<<endl;
+                            cout<<"Wrong choice!"<<endl;
                             break;
                     }
                 }
                 }
                 else{
-                    cout<<"You'r user name and password don't match"<<endl;
+                    cout<<"Your user name and password don't match"<<endl;
                     continue;
                 }
         }
-    
-    
+
+    if(editedCars == true || editedWorkers == true)
+    {
+      cout<<"You have unsaved data. Do you want to save now? (Y/N): ";
+      string choice;
+      cin>>choice;
+      if(choice == "Y")
+      {
+        if(editedWorkers == true)
+          workerDatabase.store_workers();
+
+        //if(editedCars == true)
+
+      }      
+    }
+
+    cout<<"Godbye..."<<endl;
     return 0;
 }
 

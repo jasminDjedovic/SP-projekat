@@ -14,10 +14,29 @@ class TreeCarModel : public BST<CarModel>
     void addCar();
     void printCar();
     void loadCars();
+    void storeCars();
     NodeBST<CarModel>* searchCar(const long int&);
     void findCar();
     void sellCar();
+    void inorderToFile();
 };
+
+void TreeCarModel::storeCars()
+{
+  if(isEmpty()==true)
+  {
+    std::cout<<"There are no cars in database!"<<std::endl;
+    return;
+  }
+
+  std::ofstream file("carDatabase.txt");
+  if(file.is_open())
+  {
+        
+  }
+  else
+    std::cout<<"The file doesn't exist."<<std::endl;
+}
 
 void TreeCarModel::sellCar()
 {
