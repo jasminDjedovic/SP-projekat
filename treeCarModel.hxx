@@ -7,6 +7,10 @@
 #include <fstream>
 #include "node.hxx"
 #include <iomanip>
+#include <time.h>
+#include "worker.h"
+#include "ListOfWorkers.hxx"
+
 
 class TreeCarModel : public BST<CarModel>
 {
@@ -17,9 +21,51 @@ class TreeCarModel : public BST<CarModel>
     void storeCars();
     NodeBST<CarModel>* searchCar(const long int&);
     void findCar();
-    void sellCar();
+    void sellCar(const std::string&,ListOfWorkers&);
     void inorderToFile();
+    void storeBill(const CarModel&,Worker) const;
+    std::string get_current_time()const;
+    Worker worker_info(const std::string&,ListOfWorkers&);
 };
+
+Worker TreeCarModel::worker_info(const std::string& worker_user,ListOfWorkers& all_workers){
+    for(int i=0;i<all_workers.size();++i){
+        if(worker_user==all_workers[i].getId())
+            return all_workers[i];
+    }
+    return all_workers[all_workers.size()-1];
+}
+
+std::string TreeCarModel::get_current_time()const{
+    time_t pc_time;
+    tm* time_info;
+    time(&pc_time);
+    time_info=localtime(&pc_time);
+    return asctime(time_info);
+}
+
+void TreeCarModel::storeBill(const CarModel& car,Worker worker) const {
+    std::string current_time=get_current_time();
+    std::string file_name=current_time;
+    std::ofstream file;
+    int price=car.getPrice();
+    float pdv=price*0.17;
+    file.open(file_name);
+    if(file.is_open()){
+        file<<std::string(118,'-')<<"\n";
+        file<<"Date/Time -> "<<current_time;
+        file<<std::string(118,'-')<<"\n";
+        file<<"Worker -> "<<worker.getName()<<" "<<worker.getSur_name()<<"\n";
+        file<<std::string(118,'-')<<"\n";
+        file << "Name" << std::setw(17)  << "Model" << std::setw(16) << "Class" << std::setw(18) << "ChasisN" << "\t" << "EngineS" << "\t" << "EngineT" << std::setw(13) << "Doors " << "\t" << "Color" << "\t" << "Manu. date" << "\t" << "Price \n";
+        file<<car<<"\n";
+        file<<std::string(118,'-')<<"\n";
+        file<<"PDV: "<<pdv<<"\n";
+        file<<"Price+PDV: "<<price+pdv<<"\n";
+        file<<std::string(118,'-')<<"\n";
+    }
+    file.close();
+}
 
 void TreeCarModel::storeCars()
 {
@@ -38,7 +84,7 @@ void TreeCarModel::storeCars()
     std::cout<<"The file doesn't exist."<<std::endl;
 }
 
-void TreeCarModel::sellCar()
+void TreeCarModel::sellCar(const std::string& worker_user,ListOfWorkers& all_workers)
 {
   if(isEmpty()==true)
   {
@@ -58,6 +104,8 @@ void TreeCarModel::sellCar()
     std::cout << "Car wasn't find in database" << std::endl;
   else
   {
+    
+    storeBill(tmp->getValue(),worker_info(worker_user,all_workers));
     remove(tmp->getValue());
   }
 }
