@@ -86,7 +86,7 @@ int main(){
                     }
                 }
                 }
-                else if(user!=admin_user && strcmp(password,admin_pass)){
+                else{
                     cout<<"You'r user name and password don't match"<<endl;
                     continue;
                 }
