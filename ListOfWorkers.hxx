@@ -24,6 +24,7 @@ void ListOfWorkers::printWorker(){
     }
     for(int i=0;i<size();++i)
         operator[](i).print();
+    std::cout<<std::endl;
 }
 
 bool ListOfWorkers::user_check(const std::string& user,const std::string& pass){

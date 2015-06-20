@@ -131,7 +131,10 @@ void TreeCarModel::findCar()
   else
   {
     std::cout << "Car information with chasis number: " << chasisNumber << std::endl;
+    std::cout<< "Name" << std::setw(17)  << "Model" << std::setw(16) << "Class" << std::setw(18) << "ChasisN" << "\t" << "EngineS" << "\t" << "EngineT" << std::setw(13) << "Doors " << "\t" << "Color" << "\t" << "Manu. date" << "\t" << "Price "<<std::endl;
+    std::cout<<std::string(118,'-')<<std::endl;
     std::cout << tmp -> getValue() << std::endl;
+    std::cout<<std::endl;
   }
   
 }
@@ -176,10 +179,11 @@ void TreeCarModel::printCar()
     std::cout<<"There are no cars in database!"<<std::endl;
     return;
   }
-  std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
+  std::cout<<std::string(118,'-')<<std::endl;
   std::cout << "Name" << std::setw(17)  << "Model" << std::setw(16) << "Class" << std::setw(18) << "ChasisN" << "\t" << "EngineS" << "\t" << "EngineT" << std::setw(13) << "Doors " << "\t" << "Color" << "\t" << "Manu. date" << "\t" << "Price" << std::endl;
-  std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
+  std::cout<<std::string(118,'-')<<std::endl;
   printInorder();
+  std::cout<<std::endl;
 }
 
 void TreeCarModel::addCar()
