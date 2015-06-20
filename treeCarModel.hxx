@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include "node.hxx"
+#include <iomanip>
 
 class TreeCarModel : public BST<CarModel>
 {
@@ -109,7 +110,7 @@ void TreeCarModel::printCar()
     return;
   }
   std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
-  std::cout << "Name" << "\t" << "Model" << "\t" << "Class" << "\t" << "Chasis Number" << "\t" << "Engine Size" << "\t" << "Number of doors " << "\t" << "Color" << "\t" << "Manufacture date" << std::endl;
+  std::cout << "Name" << std::setw(17)  << "Model" << std::setw(16) << "Class" << std::setw(18) << "ChasisN" << "\t" << "EngineS" << "\t" << "EngineT" << std::setw(13) << "Doors " << "\t" << "Color" << "\t" << "Manu. date" << "\t" << "Price" << std::endl;
   std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
   printInorder();
 }
@@ -118,7 +119,7 @@ void TreeCarModel::addCar()
 {
   std::string name, model, Class, color, engineType, date;
   long int chasisNumber;
-  int numberOfDoors, engineSize;
+  int numberOfDoors, engineSize, price;
   std::cout<<"Please insert car info: "<<std::endl;
   std::cout<<"Manufacturer name: ";
   std::cin>>name;
@@ -138,7 +139,9 @@ void TreeCarModel::addCar()
   std::cin>>color;
   std::cout<<"Manufacture date: (DD/MM/YY): ";
   std::cin>>date;
+  std::cout<<"Price: ";
+  std::cin>>price;
 
-  insert(CarModel(name, model, Class, chasisNumber, numberOfDoors, color, engineSize, engineType, Date(date)));
+  insert(CarModel(name, model, Class, chasisNumber, numberOfDoors, color, engineSize, engineType, Date(date), price));
 }
 #endif
