@@ -75,7 +75,7 @@ int main(){
                             carDatabase.findCar();
                             break;
                         case 3:
-                            carDatabase.sellCar();
+                            carDatabase.sellCar(user,workerDatabase);
                             editedCars = true;
                             cout<<"Car marked as sold!"<<endl;
                             break;
