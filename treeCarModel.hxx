@@ -20,6 +20,12 @@ class TreeCarModel : public BST<CarModel>
 
 void TreeCarModel::sellCar()
 {
+  if(isEmpty()==true)
+  {
+    std::cout<<"There are no cars in database!"<<std::endl;
+    return;
+  }
+  
   long int chasisNumber;
 
   std::cout << "Insert chasis number for sell: ";
@@ -38,6 +44,12 @@ void TreeCarModel::sellCar()
 
 void TreeCarModel::findCar()
 {
+  if(isEmpty()==true)
+  {
+    std::cout<<"There are no cars in database!"<<std::endl;
+    return;
+  }
+
   long int chasisNumber;
 
   std::cout << "Insert chasis number for search: ";
