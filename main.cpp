@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<cstring>
 #include<unistd.h>
 #include<cstdlib>
 #include "worker.h"
