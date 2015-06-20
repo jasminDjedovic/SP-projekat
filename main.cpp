@@ -62,12 +62,18 @@ int main(){
                 }
                 }
                 else if(workerDatabase.user_check(user,password)){
+                carDatabase.loadCars();
                 worker_log=-1;
                 while(worker_log!=0){
                     switch (worker_log=worker_login()) {
                         case 1:
+                            carDatabase.printCar();
                             break;
                         case 2:
+                            carDatabase.findCar();
+                            break;
+                        case 3:
+                            carDatabase.sellCar();
                             break;
                         case 0:
                             main_log=true;
@@ -109,8 +115,9 @@ int admin_login(){
 int worker_login(){
     int login;
     cout<<"----------------------"<<endl;
-    cout<<"1 -> Preview"<<endl;
-    cout<<"2 -> Buy"<<endl;
+    cout<<"1 -> Preview car database"<<endl;
+    cout<<"2 -> Search database for car"<<endl;
+    cout<<"3 -> Sell car"<<endl;
     cout<<"0 -> Quit"<<endl;
     cout<<"----------------------"<<endl;
     cout<<"-> ";

@@ -1,2 +1,8 @@
 Volkswagen     Golf       Hatchback   123456 2000 Diesel  5 Gray   22/22/2002
 Opel           Insignia   Limuzina    563723 2100 Diesel  5 Black  01/01/2015
+Volkswagen     Golf       Hatchback   111111 2000 Diesel  5 Gray   22/22/2002
+Opel           Insignia   Limuzina    222222 2100 Diesel  5 Black  01/01/2015
+Volkswagen     Golf       Hatchback   333333 2000 Diesel  5 Gray   22/22/2002
+Opel           Insignia   Limuzina    444444 2100 Diesel  5 Black  01/01/2015
+Volkswagen     Golf       Hatchback   555555 2000 Diesel  5 Gray   22/22/2002
+Opel           Insignia   Limuzina    666666 2100 Diesel  5 Black  01/01/2015

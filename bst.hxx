@@ -184,6 +184,7 @@ void BST<T>::remove(const T &val)
 
   if(target->getLeftNode() == nullptr && target->getRightNode() == nullptr) //bez djece
   {
+     //std::cout<<"Brisanje cvora bez djece"<<std::endl;
      if(parrent->getLeftNode() == target)
       parrent->setLeftNode(nullptr);
      else
@@ -191,6 +192,7 @@ void BST<T>::remove(const T &val)
   }
   else if(target->getLeftNode() != nullptr && target->getRightNode() == nullptr)
   {//ima samo lijevo dijete
+     //std::cout<<"Brisanje cvora sa lijevim djetetom "<<std::endl;
 
      if(parrent->getLeftNode() == target)
       parrent->setLeftNode(target->getLeftNode());
@@ -200,6 +202,7 @@ void BST<T>::remove(const T &val)
   }
   else if(target->getLeftNode() == nullptr && target->getRightNode() != nullptr)
   {//ima samo desno dijete
+     //std::cout<<"Brisanje cvora sa desnim djetetom "<<std::endl;
 
      if(parrent->getLeftNode() == target)
       parrent->setLeftNode(target->getRightNode());
@@ -209,6 +212,7 @@ void BST<T>::remove(const T &val)
   }
   else
   {
+    //std::cout<<"Brisanje cvora sa dvoje djece "<<std::endl;
     NodeBST<T> *tmp = target;
     target = target->getRightNode();
     parrent = tmp;
