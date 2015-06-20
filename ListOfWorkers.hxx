@@ -2,6 +2,7 @@
 #define WORKERS_HXX
 #include<iostream>
 #include<string>
+#include<unistd.h>
 #include<fstream>
 #include "list.hxx"
 #include "worker.h"
@@ -80,7 +81,8 @@ void ListOfWorkers::store_workers(){
 }
 
 void ListOfWorkers::addWorker(){
-    std::string id,pass,name,last_name;
+    std::string id,name,last_name;
+    char* pass;
     std::cout<<"Please insert worker info: "<<std::endl;
     std::cout<<"Name: ";
     std::cin>>name;
@@ -90,9 +92,10 @@ void ListOfWorkers::addWorker(){
     while(not_exist){
     std::cout<<"User name: ";
     std::cin>>id;
-    std::cout<<"Password: ";
-    std::cin>>pass;
+        pass=getpass("Password: ");
+    
         if(user_check(id,pass)==false){
+            std::cout<<"New worker is added in the database."<<std::endl;
             break;
             not_exist=false;
         }
