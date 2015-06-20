@@ -1,9 +1,10 @@
-3.1 Stablo -> prodavanje auta (IN PROGRESS)
+3.1 Stablo -> prodavanje auta (DONE)
 4. Popraviti login
 5. Pregled svih radnika
 7. Pretraga automobila (DONE)
 8. Urediti stablo kao samobalansirajuce
 10. Napraviti racun
+11. Popraviti brisanje u BST-u, postoji granicni slucaj kada izbacuje segmentation fault!
 
 
 
