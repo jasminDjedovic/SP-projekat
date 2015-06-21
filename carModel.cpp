@@ -2,6 +2,7 @@
 #include "manufacturer.h"
 #include "date.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 CarModel::CarModel()
@@ -121,4 +122,20 @@ bool CarModel::operator==(const long int& chasisNumber) const
 bool CarModel::operator<(const long int& chasisNumber) const
 {
   return _chasisNumber < chasisNumber;
+}
+
+void CarModel::printToFile()
+{
+  std::ofstream out("carDatabase.txt", std::ofstream::app);
+
+  if(out.is_open())
+  {
+    out<<_name<<"\t"<<_model<<"\t"<<_class<<"\t"<<_chasisNumber<<"\t"<<_engineSize<<"\t"<<_engineType<<"\t"<<_numberOfDoors<<"\t"<<_color<<"\t";
+    //_manufacture_date.print();
+    out<<"\t"<<_price<<"€";
+  }
+  else
+    std::cout<<"Error opening file!"<<std::endl;
+
+
 }

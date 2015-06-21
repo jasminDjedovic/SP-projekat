@@ -10,7 +10,7 @@
 #include <time.h>
 #include "worker.h"
 #include "ListOfWorkers.hxx"
-
+#include <stdio.h>
 
 class TreeCarModel : public BST<CarModel>
 {
@@ -22,10 +22,10 @@ class TreeCarModel : public BST<CarModel>
     NodeBST<CarModel>* searchCar(const long int&);
     void findCar();
     void sellCar(const std::string&,ListOfWorkers&);
-    void inorderToFile();
     void storeBill(const CarModel&,Worker) const;
     std::string get_current_time()const;
     Worker worker_info(const std::string&,ListOfWorkers&);
+    void inorderToFile(NodeBST<CarModel> *);
 };
 
 Worker TreeCarModel::worker_info(const std::string& worker_user,ListOfWorkers& all_workers){
@@ -74,14 +74,18 @@ void TreeCarModel::storeCars()
     std::cout<<"There are no cars in database!"<<std::endl;
     return;
   }
+  std::remove("carDatabase.txt");
+  inorderToFile(root);
+}
+void TreeCarModel::inorderToFile(NodeBST<CarModel> *node)
+{
+  if(node->getLeftNode() != nullptr)
+    inorderToFile(node->getLeftNode());
 
-  std::ofstream file("carDatabase.txt");
-  if(file.is_open())
-  {
-        
-  }
-  else
-    std::cout<<"The file doesn't exist."<<std::endl;
+  node->getValue().printToFile();
+
+  if(node->getRightNode() != nullptr)
+    inorderToFile(node->getRightNode());
 }
 
 void TreeCarModel::sellCar(const std::string& worker_user,ListOfWorkers& all_workers)

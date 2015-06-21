@@ -105,6 +105,7 @@ int main(){
           workerDatabase.store_workers();
 
         //if(editedCars == true)
+          //carDatabase.storeCars();
 
       }      
     }
