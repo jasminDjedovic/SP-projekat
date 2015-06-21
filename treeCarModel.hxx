@@ -46,23 +46,24 @@ std::string TreeCarModel::get_current_time()const{
 
 void TreeCarModel::storeBill(const CarModel& car,Worker worker) const {
     std::string current_time=get_current_time();
-    std::string file_name=current_time;
+    std::string file_name="bills/"+current_time;
     std::ofstream file;
     int price=car.getPrice();
     float pdv=price*0.17;
     file.open(file_name);
     if(file.is_open()){
-        file<<std::string(118,'-')<<"\n";
+        file<<std::string(112,'-')<<"\n";
         file<<"Date/Time -> "<<current_time;
-        file<<std::string(118,'-')<<"\n";
+        file<<std::string(112,'-')<<"\n";
         file<<"Worker -> "<<worker.getName()<<" "<<worker.getSur_name()<<"\n";
-        file<<std::string(118,'-')<<"\n";
-        file << "Name" << std::setw(17)  << "Model" << std::setw(16) << "Class" << std::setw(18) << "ChasisN" << "\t" << "EngineS" << "\t" << "EngineT" << std::setw(13) << "Doors " << "\t" << "Color" << "\t" << "Manu. date" << "\t" << "Price \n";
+        file<<std::string(112,'-')<<"\n";
+        file<<"Name"<<std::string(11, ' ')<<"Model"<<std::string(8, ' ')<<"Class"<<std::string(8, ' ');
+        file<<"ChasisN    "<<"EngineS    "<<"EngineT   "<<"Doors    "<<"Color    "<<"Production"<<std::string(4,' ')<<"Price"<<std::endl;
         file<<car<<"\n";
-        file<<std::string(118,'-')<<"\n";
+        file<<std::string(112,'-')<<"\n";
         file<<"PDV: "<<pdv<<"\n";
         file<<"Price+PDV: "<<price+pdv<<"\n";
-        file<<std::string(118,'-')<<"\n";
+        file<<std::string(112,'-')<<"\n";
     }
     file.close();
 }
@@ -79,10 +80,12 @@ void TreeCarModel::storeCars()
 }
 void TreeCarModel::inorderToFile(NodeBST<CarModel> *node)
 {
+  //static std::ofstream file("carDatabase.txt");
   if(node->getLeftNode() != nullptr)
     inorderToFile(node->getLeftNode());
 
   node->getValue().printToFile();
+  //file<<node->getValue();
 
   if(node->getRightNode() != nullptr)
     inorderToFile(node->getRightNode());
@@ -135,12 +138,14 @@ void TreeCarModel::findCar()
   else
   {
     std::cout << "Car information with chasis number: " << chasisNumber << std::endl;
-    std::cout<<std::string(105,'-')<<std::endl;  
+    
+    std::cout<<std::string(112,'-')<<std::endl;  
     std::cout<<"Name"<<std::string(11, ' ')<<"Model"<<std::string(8, ' ')<<"Class"<<std::string(8, ' ');
-    std::cout<<"ChasisN    "<<"EngineS    "<<"EngineT   "<<"Doors    "<<"Color    "<<"Price"<<std::endl;
-    std::cout<<std::string(105,'-')<<std::endl;
+    std::cout<<"ChasisN    "<<"EngineS    "<<"EngineT   "<<"Doors    "<<"Color    "<<"Production"<<std::string(4,' ')<<"Price"<<std::endl;
+    std::cout<<std::string(112,'-')<<std::endl;
     
     std::cout << tmp -> getValue() << std::endl;
+    std::cout<<std::string(112,'-')<<std::endl;
     std::cout<<std::endl;
   }
   
@@ -187,10 +192,10 @@ void TreeCarModel::printCar()
     return;
   }
 
-  std::cout<<std::string(105,'-')<<std::endl;  
+  std::cout<<std::string(112,'-')<<std::endl;  
   std::cout<<"Name"<<std::string(11, ' ')<<"Model"<<std::string(8, ' ')<<"Class"<<std::string(8, ' ');
-  std::cout<<"ChasisN    "<<"EngineS    "<<"EngineT   "<<"Doors    "<<"Color    "<<"Price"<<std::endl;
-  std::cout<<std::string(105,'-')<<std::endl;
+  std::cout<<"ChasisN    "<<"EngineS    "<<"EngineT   "<<"Doors    "<<"Color    "<<"Production"<<std::string(4,' ')<<"Price"<<std::endl;
+  std::cout<<std::string(112,'-')<<std::endl;
 
   printInorder();
   std::cout<<std::endl;

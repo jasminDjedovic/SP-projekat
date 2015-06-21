@@ -117,14 +117,14 @@ int main(){
 
 int admin_login(){
     int login;
-    cout<<"----------------------"<<endl;
+    cout<<"-----------------------------"<<endl;
     cout<<"1 -> Add a new car"<<endl;
     cout<<"2 -> Preview car database"<<endl;
     cout<<"3 -> Add a new worker"<<endl;
     cout<<"4 -> Preview worker database"<<endl;
     cout<<"5 -> Search database for car"<<endl;
     cout<<"0 -> Quit"<<endl;
-    cout<<"----------------------"<<endl;
+    cout<<"-----------------------------"<<endl;
     cout<<"-> ";
     cin>>login;
     cin.ignore();
@@ -132,12 +132,12 @@ int admin_login(){
 }
 int worker_login(){
     int login;
-    cout<<"----------------------"<<endl;
+    cout<<"-----------------------------"<<endl;
     cout<<"1 -> Preview car database"<<endl;
     cout<<"2 -> Search database for car"<<endl;
     cout<<"3 -> Sell car"<<endl;
     cout<<"0 -> Quit"<<endl;
-    cout<<"----------------------"<<endl;
+    cout<<"-----------------------------"<<endl;
     cout<<"-> ";
     cin>>login;
     cin.ignore();

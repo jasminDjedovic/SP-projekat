@@ -1,9 +1,1 @@
-Volkswagen     Golf         Hatchback    111111 2000 Diesel    5 Gray     4211
-Volkswagen     Golf         Hatchback    123456 2000 Diesel    5 Gray     3211
-Opel           Insignia     Limuzina     222222 2100 Diesel    5 Black    1231
-Volkswagen     Golf         Hatchback    333333 2000 Diesel    5 Gray     2131
-Opel           Insignia     Limuzina     444444 2100 Diesel    5 Black    3211
-Fiat           Stilo        SmallCar     457382 1900 Diesel    3 White    15499
-Volkswagen     Golf         Hatchback    555555 2000 Diesel    5 Gray     1231
-Opel           Insignia     Limuzina     563723 2100 Diesel    5 Black    4121
-Opel           Insignia     Limuzina     666666 2100 Diesel    5 Black    1111
+Opel           Astra        Hatchback    111111 1800 Benzin    3 02/02/2015 Black    19999
