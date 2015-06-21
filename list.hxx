@@ -6,7 +6,7 @@
 template <typename T>
 class lista
 {
-  private:
+  protected:
     T *array;
     int _current;
     int _size;

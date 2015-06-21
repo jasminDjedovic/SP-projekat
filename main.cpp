@@ -49,6 +49,7 @@ int main(){
                             editedWorkers = true;
                             break;
                         case 4:
+                            workerDatabase.sort();
                             workerDatabase.printWorker();
                             break;
                         case 5:
@@ -77,7 +78,6 @@ int main(){
                         case 3:
                             carDatabase.sellCar(user,workerDatabase);
                             editedCars = true;
-                            cout<<"Car marked as sold!"<<endl;
                             break;
                         case 0:
                             main_log=true;
@@ -110,7 +110,7 @@ int main(){
       }      
     }
 
-    cout<<"Godbye..."<<endl;
+    cout<<"Goodbye..."<<endl;
     return 0;
 }
 

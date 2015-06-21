@@ -70,13 +70,11 @@ void TreeCarModel::storeBill(const CarModel& car,Worker worker) const {
 
 void TreeCarModel::storeCars()
 {
-  if(isEmpty()==true)
-  {
-    std::cout<<"There are no cars in database!"<<std::endl;
-    return;
-  }
   std::remove("carDatabase.txt");
-  inorderToFile(root);
+  if(isEmpty()==false)
+  {
+    inorderToFile(root);    
+  }  
 }
 void TreeCarModel::inorderToFile(NodeBST<CarModel> *node)
 {
@@ -115,6 +113,8 @@ void TreeCarModel::sellCar(const std::string& worker_user,ListOfWorkers& all_wor
     storeBill(tmp->getValue(),worker_info(worker_user,all_workers));
     remove(tmp->getValue());
   }
+
+  std::cout<<"Car marked as sold!"<<std::endl;
 }
 
 void TreeCarModel::findCar()
@@ -174,8 +174,8 @@ void TreeCarModel::loadCars()
   std::ifstream file("carDatabase.txt");
   if(!file)
   {
-    std::cout<<"Error loading cars from database!"<<std::endl;
     file.close();
+    return;
   }
   std::string pars;
   while(std::getline(file, pars))

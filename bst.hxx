@@ -182,6 +182,27 @@ void BST<T>::remove(const T &val)
       target = target->getLeftNode();
   }
 
+  if(target == root && root->getLeftNode() == nullptr && root->getRightNode() == nullptr)
+  {
+    delete root;
+    root = nullptr;
+    return;
+  }
+  if(target == root && root->getLeftNode() == nullptr && root->getRightNode() != nullptr)
+  {
+    root = root->getRightNode();
+    root->setRightNode(nullptr);
+    delete target;
+    return;
+  }
+  if(target == root && root->getLeftNode() != nullptr && root->getRightNode() == nullptr)
+  {
+    root = root->getLeftNode();
+    root->setLeftNode(nullptr);
+    delete target;
+    return;
+  }
+  
   if(target->getLeftNode() == nullptr && target->getRightNode() == nullptr) //bez djece
   {
      //std::cout<<"Brisanje cvora bez djece"<<std::endl;

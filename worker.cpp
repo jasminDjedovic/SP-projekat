@@ -45,3 +45,15 @@ void Worker::print()
   std::cout << "Last name: " << _surname << std::endl;
   std::cout<<"----------------------------------------"<<std::endl;
 }
+
+bool Worker::operator<(const Worker &b) const
+{
+  if(_surname == b._surname)
+    return _name<b._name;
+  
+  return _surname<b._surname;
+}
+bool Worker::operator>(const Worker &b) const
+{
+  return !(*this < b);
+}

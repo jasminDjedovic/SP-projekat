@@ -6,6 +6,7 @@
 #include<fstream>
 #include "list.hxx"
 #include "worker.h"
+#include "quick_sort.h"
 
 class ListOfWorkers:public lista<Worker> {
 public:
