@@ -40,8 +40,8 @@ Worker& Worker::operator=(const Worker& b)
 
 void Worker::print()
 {
-  std::cout << "ID radnika: " << _id_worker << std::endl;
-  std::cout << "Ime radnika: " << _name << std::endl;
-  std::cout << "Prezime radnika: " << _surname << std::endl;
+  std::cout << "ID: " << _id_worker << std::endl;
+  std::cout << "First name: " << _name << std::endl;
+  std::cout << "Last name: " << _surname << std::endl;
   std::cout<<"----------------------------------------"<<std::endl;
 }
