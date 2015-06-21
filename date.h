@@ -22,6 +22,9 @@ class Date
 
     Date& operator=(Date &&);
     Date& operator=(const Date &);
+    std::string getDay() const {return _day;} 
+    std::string getMonth() const {return _month;}
+    std::string getYear() const {return _year;}
     
     /*
     friend ostream& operator<<(ostream& out, const Date& date)
