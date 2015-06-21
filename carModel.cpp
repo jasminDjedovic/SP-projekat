@@ -18,16 +18,16 @@ CarModel::CarModel()
 
 CarModel::CarModel(const std::string& a)
 {
-  _name = a.substr(0, 12);
-  _model = a.substr(12, 11);
-  _class = a.substr(23, 12); 
-  _chasisNumber = stoi(a.substr(35, 6));
-  _engineSize = stoi(a.substr(42, 4));
-  _engineType  = a.substr(47, 8);
-  _numberOfDoors = stoi(a.substr(55, 1));
-  _color = a.substr(57, 7);
-  _manufacture_date = Date(a.substr(64, 12));
-  _price = stoi(a.substr(77, 5));
+  _name = a.substr(0, 15);
+  _model = a.substr(15, 13);
+  _class = a.substr(28, 13); 
+  _chasisNumber = stoi(a.substr(41, 6));
+  _engineSize = stoi(a.substr(48, 4));
+  _engineType  = a.substr(53, 10);
+  _numberOfDoors = stoi(a.substr(63, 1));
+  _color = a.substr(65, 9);
+  _manufacture_date = Date();
+  _price = stoi(a.substr(74));
 }
 
 CarModel::CarModel(const std::string &name, const std::string &model, const std::string &Class, long int chasisNumber, int numberOfDoors, const std::string &color, int engineSize, const std::string &engineType, const Date &manufacture_date, int price)
@@ -100,10 +100,22 @@ CarModel &CarModel::operator=(CarModel &&b)
 
 std::ostream& operator<<(std::ostream& out, const CarModel& car)
 {
+  out<<car._name;
+  for(int i=0; i<15-car._name.length();++i) out<<" ";
+  out<<car._model;
+  for(int i=0; i<13-car._model.length();++i) out<<" ";
+  out<<car._class;
+  for(int i=0; i<13-car._class.length();++i) out<<" ";
+  out<<car._chasisNumber<<"      "<<car._engineSize<<"      "<<car._engineType;
+  for(int i=0; i<10-car._engineType.length();++i) out<<" ";
+  out<<car._numberOfDoors<<"        "<<car._color;
+  for(int i=0; i<9-car._color.length();++i) out<<" ";
+  out<<car._price<<"€";
 
+  /*
   out<<car._name<<"\t"<<car._model<<"\t"<<car._class<<"\t"<<car._chasisNumber<<"\t"<<car._engineSize<<"\t"<<car._engineType<<"\t"<<car._numberOfDoors<<"\t"<<car._color<<"\t";
   car._manufacture_date.print();
-  out<<"\t"<<car._price<<"€";
+  out<<"\t"<<car._price<<"€";*/
   return out;
 }
 
@@ -130,9 +142,17 @@ void CarModel::printToFile()
 
   if(out.is_open())
   {
-    out<<_name<<"\t"<<_model<<"\t"<<_class<<"\t"<<_chasisNumber<<"\t"<<_engineSize<<"\t"<<_engineType<<"\t"<<_numberOfDoors<<"\t"<<_color<<"\t";
-    //_manufacture_date.print();
-    out<<"\t"<<_price<<"€";
+    out<<_name;
+    for(int i=0; i<15-_name.length();++i) out<<" ";
+    out<<_model;
+    for(int i=0; i<13-_model.length();++i) out<<" ";
+    out<<_class;
+    for(int i=0; i<13-_class.length();++i) out<<" ";
+    out<<_chasisNumber<<" "<<_engineSize<<" "<<_engineType;
+    for(int i=0; i<10-_engineType.length();++i) out<<" ";
+    out<<_numberOfDoors<<" "<<_color;
+    for(int i=0; i<9-_color.length();++i) out<<" ";
+    out<<_price<<"\n";
   }
   else
     std::cout<<"Error opening file!"<<std::endl;

@@ -104,8 +104,8 @@ int main(){
         if(editedWorkers == true)
           workerDatabase.store_workers();
 
-        //if(editedCars == true)
-          //carDatabase.storeCars();
+        if(editedCars == true)
+          carDatabase.storeCars();
 
       }      
     }
